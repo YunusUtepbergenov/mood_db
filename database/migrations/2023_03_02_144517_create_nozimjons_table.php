@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMinorsTable extends Migration
+class CreateNozimjonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,19 @@ class CreateMinorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('minors', function (Blueprint $table) {
+        Schema::create('nozimjons', function (Blueprint $table) {
             $table->id();
             $table->integer('district_code')->unsigned();
             $table->date('date');
-            $table->integer('work_count');
-            $table->integer('people_count');
-            $table->integer('ligher_sen');
-            $table->integer('release_before');
-            $table->integer('reconciliation');
-            $table->integer('fined');
-            $table->integer('compulsory_serv');
-            $table->integer('correctional');
-            $table->integer('restr_lib');
-            $table->integer('prison');
-            $table->integer('probation');
+            $table->double('bs_gen');
+            $table->double('b_s_q2');
+            $table->double('b_s_q4');
+            $table->double('b_s_q6');
+            $table->double('bs_score_cur');
+            $table->double('b_s_q1');
+            $table->double('b_s_q3');
+            $table->double('b_s_q5');
+            $table->double('bs_score_fut');
             $table->timestamps();
 
             $table->foreign('district_code')->references('code')->on('districts')->onDelete('cascade');
@@ -41,6 +39,6 @@ class CreateMinorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('minors');
+        Schema::dropIfExists('nozimjons');
     }
 }

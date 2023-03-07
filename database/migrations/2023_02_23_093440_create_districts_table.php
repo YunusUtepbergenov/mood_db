@@ -20,6 +20,7 @@ class CreateDistrictsTable extends Migration
             $table->integer('region_code')->unsigned();
             $table->integer('code')->unique();
             $table->string('name');
+
             $table->timestamps();
 
             $table->foreign('region_code')->references('code')->on('regions')->onDelete('cascade');

@@ -40,11 +40,11 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+    @livewireStyles()
 
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}" />
-    {{-- @livewireStyles --}}
-
+    {{-- <link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}" /> --}}
     <!-- Page CSS -->
+    {{-- <link rel="stylesheet" href="{{asset('css/main.css')}}"> --}}
 
     <!-- Helpers -->
     <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
@@ -58,39 +58,24 @@
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-        @include('partials._sidebar')
+        <!-- Menu -->
+          @livewire('filter')
+          <!-- / Menu -->
         <!-- Layout container -->
         <div class="layout-page">
-          @include('partials._navbar')
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
-            <!-- Content -->
-
-            <div class="container-xxl flex-grow-1 container-p-y">
-                @yield('content')
-            </div>
-            <!-- / Content -->
-
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                
-                
-              </div>
-            </footer>
-            <!-- / Footer -->
-
-            <div class="content-backdrop fade"></div>
-
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                  @livewire('analysis')
+                </div>
           </div>
-          <!-- Content wrapper -->
+              <!-- / Content -->
         </div>
+      <!-- Content wrapper -->
         <!-- / Layout page -->
+          @livewire('regions')
       </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
 
@@ -115,6 +100,9 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    {{-- @livewireScripts --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @livewireScripts()
+    @stack('scripts')
   </body>
 </html>

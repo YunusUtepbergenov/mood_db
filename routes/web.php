@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CourtController;
+use App\Http\Controllers\PageController;
 use App\Models\District;
+use App\Models\Minor;
 use App\Models\Region;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('dashboard');
+
+Route::get('/analysis', [PageController::class, 'analysis'])->name('page.analysis');
+
+Route::get('court/upload', [CourtController::class, 'upload'])->name('court.upload');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
