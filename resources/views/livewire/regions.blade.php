@@ -23,12 +23,13 @@
                 </div>
              </div>
              
-             <div class="card" style="height:50%; border-bottom: 1px solid #ccc; overflow:auto">
+             <div class="card" style="height:50%; border-bottom: 1px solid #ccc; overflow:auto;width:100%">
                 <div class="row" id="select_type1" style="margin:0">
                    <div class="card-header">
                       <span style="margin-left: 5px;">Tumanlar</span> 
                    </div>
                 </div>
+
                 <div style="overflow:auto">
                     <ul class="list-group list-group-flush">
                         @foreach ($districts as $key=>$district)
