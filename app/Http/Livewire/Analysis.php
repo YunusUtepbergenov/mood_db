@@ -19,7 +19,7 @@ class Analysis extends Component
                     ->leftJoin('nozimjons', 'districts.code', '=', 'nozimjons.district_code')->get();
 
         $query = $query->where('region_code', 1703)->where('district_code', 1703202);
-
+        
         foreach($query as $q){
             array_push($this->bs_score, $q->bs_score);
             array_push($this->dates, substr($q->date, 0, 7));
